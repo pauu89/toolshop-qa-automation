@@ -1,4 +1,3 @@
-
 name: Toolshop QA Automation
 
 on:
@@ -29,6 +28,8 @@ jobs:
         run: python -m playwright install --with-deps chromium
 
       - name: Ejecutar tests y generar reporte
+        env:
+         PYTHONPATH: .
         run: |
           mkdir -p reports
           pytest -v --html=reports/report.html --self-contained-html
