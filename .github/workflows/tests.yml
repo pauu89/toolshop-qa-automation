@@ -32,8 +32,12 @@ jobs:
          PYTHONPATH: .
         run: |
           mkdir -p reports
-          pytest -v --html=reports/report.html --self-contained-html screenshot only-on-failure --tracing retain-on-failure
-
+          pytest -v \
+            --html=reports/report.html \
+            --self-contained-html \
+            --screenshot only-on-failure \
+            --tracing retain-on-failure \
+            --output=test-results
       - name: Guardar reporte HTML
         if: always()
         uses: actions/upload-artifact@v4
