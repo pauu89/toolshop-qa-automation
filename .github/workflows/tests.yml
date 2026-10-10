@@ -32,7 +32,7 @@ jobs:
          PYTHONPATH: .
         run: |
           mkdir -p reports
-          pytest -v --html=reports/report.html --self-contained-html
+          pytest -v --html=reports/report.html --self-contained-html screenshot only-on-failure --tracing retain-on-failure
 
       - name: Guardar reporte HTML
         if: always()
@@ -41,3 +41,11 @@ jobs:
           name: toolshop-html-report
           path: reports/report.html
           if-no-files-found: warn
+
+      - name: Guardar evidencias de fallos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-debug-evidence
+          path: test-results/
+          if-no-files-found: ignore
