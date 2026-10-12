@@ -186,3 +186,14 @@ Potential future additions include:
 - Screenshots and traces for failed tests
 - Gherkin scenarios
 - Automated test execution through GitHub Actions
+
+### Estado de ejecución en CI/CD
+
+Los 7 tests automatizados se ejecutan correctamente en el entorno local.
+
+La ejecución mediante GitHub Actions puede verse afectada por la protección anti-bot (Cloudflare) del sitio de práctica [Practice Software Testing](https://practicesoftwaretesting.com), que puede bloquear las solicitudes provenientes de los runners de CI.
+
+Esta restricción corresponde al entorno externo de pruebas y no implica necesariamente un error en los tests automatizados.
+
+- **Entorno local:** 7 tests ejecutados correctamente.
+- **GitHub Actions:** la ejecución puede verse afectada por las restricciones de acceso del sitio externo.
